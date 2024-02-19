@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "cb25816a-1ce8-4df1-afd6-f38f516a84b7": {
+      "ProjectGuid": "cb25816a-1ce8-4df1-afd6-f38f516a84b7",
+      "DisplayName": "DEMO_CLOUD_CA_DOTNET",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 1
+}

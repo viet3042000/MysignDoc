@@ -1,0 +1,722 @@
+{
+	"info": {
+		"_postman_id": "160b4402-461d-4b9a-90d0-26ea3e643768",
+		"name": "Viettel Mysign Gateway",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "API",
+			"item": [
+				{
+					"name": "1. Login (lấy token)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"client_id\": \"{{client_id}}\",\n    \"user_id\": \"{{user_id}}\",\n    \"client_secret\": \"{{client_secret}}\",\n    \"profile_id\": \"{{profile_id}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/vtss/service/ras/v1/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"vtss",
+								"service",
+								"ras",
+								"v1",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"client_id\": \"{{client_id}}\",\n    \"user_id\": \"{{user_id}}\",\n    \"client_secret\": \"{{client_secret}}\",\n    \"profile_id\": \"{{profile_id}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/adss/service/ras/v1/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"adss",
+										"service",
+										"ras",
+										"v1",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "465"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 12 Apr 2022 10:27:09 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhc2NlcnRpYSIsInN1YiI6IkNNVF8wMTIzNDU2Nzg5IiwiZXhwIjoxNjc1Mjk4ODkzLCJpYXQiOjE2NzUyOTUyOTMsInRva2VuX2lkIjoiODUwNTcyZTYtNmI3YS00Mzc1LTgzNDUtMGU0NzMwMmUyZjIwIiwic2NvcGUiOiJTQ09QRV9DU0NfQlVTSU5FU1NfQVBQX0JBU0lDIiwicmFzX3Byb2ZpbGUiOiJhZHNzOnJhczpwcm9maWxlOjAwMSIsInRva2VuX3R5cGUiOiJhY2Nlc3NfdG9rZW4iLCJjbGllbnRfaWQiOiJzYW1wbGVzX3Rlc3RfY2xpZW50In0.j3NAnYL2aTzLGG0z1hyUv8A5Hlt5kwLVLZEieygLJog\",\n    \"refresh_token\": \"\",\n    \"token_type\": \"Bearer\",\n    \"expires_in\": \"3600\"\n}"
+						}
+					]
+				},
+				{
+					"name": "2. Lấy danh sách và thông tin CTS",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"client_id\": \"{{client_id}}\",\r\n    \"client_secret\": \"{{client_secret}}\",\r\n    \"profile_id\": \"{{profile_id}}\",\r\n    \"user_id\": \"{{user_id}}\",\r\n    \"certificates\": \"chain\",\r\n    \"certInfo\": true,\r\n    \"authInfo\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/vtss/service/certificates/info",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"vtss",
+								"service",
+								"certificates",
+								"info"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"client_id\": \"023\",\r\n    \"client_secret\": \"client_secret\",\r\n    \"profile_id\": \"adss:ras:profile:001\",\r\n    \"user_id\": \"CMT_0123456789\",\r\n    \"certificates\": \"chain\",\r\n    \"certInfo\": true,\r\n    \"authInfo\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9005/wrapper/api/v1/integrated/getLstCerInfo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"wrapper",
+										"api",
+										"v1",
+										"integrated",
+										"getLstCerInfo"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Sep 2022 04:50:07 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"description\": \"Go>Sign mobile based implicit credential authorization\",\n        \"key\": {\n            \"status\": \"enabled\",\n            \"algo\": [\n                \"1.2.840.113549.1.1.1\"\n            ],\n            \"len\": \"2048\",\n            \"curve\": null\n        },\n        \"cert\": {\n            \"status\": \"expired\",\n            \"certificates\": [\n                \"MIIEXjCCA0agAwIBAgIQVAT//rcDP7MW1nIgG481LTANBgkqhkiG9w0BAQUFADBO\\r\\nMQswCQYDVQQGEwJWTjESMBAGA1UEBwwJSMOgIE7hu5lpMRYwFAYDVQQKEw1WaWV0\\r\\ndGVsIEdyb3VwMRMwEQYDVQQDEwpWaWV0dGVsLUNBMB4XDTIyMTAxNzA0MzE1MFoX\\r\\nDTIzMDExNzA0MzE1MFowVjELMAkGA1UEBhMCVk4xFDASBgNVBAcMC0Lhuq5DIEvh\\r\\nuqBOMRAwDgYDVQQDDAdLSCBURVNUMR8wHQYKCZImiZPyLGQBAQwPQ01ORDowMTIz\\r\\nNDU2Nzg5MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnTSdORkGEhYj\\r\\nJwXuwO5VxApF1zfdXJ3oWzZF6/uapDwaZBGTwso0KLXJLRPRKWP4mPXV3NmSxQ1a\\r\\nPMtCqrkbhyzeGM2Lkl4MZnt/gHmgDLuNpSINGvdFSerl10LHIZDrspxG9E4BYQKY\\r\\n5BK8pvue7BHi6PgRsLJCqynyAwOieAcKcr85uy7tdBjcFCGbFEVjCISnGaszinr5\\r\\nZE0zilnoCxJRJtd27h9ZDPsYYZ7P+JyvKxMBr7a4OdyKpVnyguY8z4Hey4NDTOu2\\r\\n6OgzDnuSrztV3LLZE9jR/BkkNEoTBwLYlJ6YVtz+sHmPULEvIJqRLcMbph2eq9nX\\r\\nmxfsS6+D1wIDAQABo4IBLjCCASowNQYIKwYBBQUHAQEEKTAnMCUGCCsGAQUFBzAB\\r\\nhhlodHRwOi8vb2NzcC52aWV0dGVsLWNhLnZuMB0GA1UdDgQWBBS0H624Ju9thrPR\\r\\nZyUpibFplW6imjAMBgNVHRMBAf8EAjAAMB8GA1UdIwQYMBaAFP7LQRTpXafZMg3k\\r\\nsghc8VzstrK1MIGSBgNVHR8EgYowgYcwgYSgLqAshipodHRwOi8vY3JsLnZpZXR0\\r\\nZWwtY2Eudm4vVmlldHRlbC1DQS12My5jcmyiUqRQME4xEzARBgNVBAMMClZpZXR0\\r\\nZWwtQ0ExFjAUBgNVBAoMDVZpZXR0ZWwgR3JvdXAxEjAQBgNVBAcMCUjDoCBO4buZ\\r\\naTELMAkGA1UEBhMCVk4wDgYDVR0PAQH/BAQDAgXgMA0GCSqGSIb3DQEBBQUAA4IB\\r\\nAQCEtQPta08GLmfd5s61kg+Jrok8g2WmXGBsT9+J8XEIsMvcJlX6OQCQEiRRutWw\\r\\n13DKJx/9LSQj8jx4SMJNdEtMLtB7+AMbBebnABgZCvjm59QGqNA/zNPO5QADo3II\\r\\nqqshQTF3+av1UVc9QLg2gO4EN8+8caK69v+IVy7M1HVu3w4uCDZ5NS7hkXrEupNi\\r\\nRpHiRr3d1sJiSPbjv5U0HAl+l6A3mUgHH8MgBATQTRyoxdkvo7CHGvTWbfP4P+7A\\r\\n1o8Cy1p7bK9MOk0HUMC1kdqu5Y4JpVyMNUOCnT/I2x6eaeamER+YOrJdswCXsMEx\\r\\nCDNl88E6NGn4fuT/0jw3K8Ks\",\n                \"MIIEPDCCAySgAwIBAgIKYSGjcwAAAAAAEjANBgkqhkiG9w0BAQUFADB+MQswCQYD\\r\\nVQQGEwJWTjEzMDEGA1UEChMqTWluaXN0cnkgb2YgSW5mb3JtYXRpb24gYW5kIENv\\r\\nbW11bmljYXRpb25zMRswGQYDVQQLExJOYXRpb25hbCBDQSBDZW50ZXIxHTAbBgNV\\r\\nBAMTFE1JQyBOYXRpb25hbCBSb290IENBMB4XDTE5MDUxMzExNTUxMloXDTI0MDUx\\r\\nMzEyMDUxMlowTjELMAkGA1UEBhMCVk4xEjAQBgNVBAcMCUjDoCBO4buZaTEWMBQG\\r\\nA1UEChMNVmlldHRlbCBHcm91cDETMBEGA1UEAxMKVmlldHRlbC1DQTCCASIwDQYJ\\r\\nKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMZ8krmgQxo8WQct+qdkYYYJ+WJMkvbd\\r\\n+/8GSZ8s/0NskDBpcPqxovV+QrbYV+QQSkRilK41lGpas4fXffOyJTUTFQcRLz4x\\r\\nnFMYl7kppMd5vZfL/+Exfh1etKuTBh4BySWtrN7rbVLuluwnQT5QwtRnP0M3pPS6\\r\\nS2OxwuD/k6T2tM5Et9XoubaM+4WmZTemyoHyHZ2R6863ltx3U5Apu8VVDJHSNSqq\\r\\nXmDsmoTpUPFFYC/bu9u1/kMNY3gP2CObqaGf3uap2hYuXThtgr7NwAvvzHK/JkXH\\r\\nANRKc4W9RyZ//0XBRKQRm6CaXbvq7BN70yZSI5c/i6zRIHteI+54bHUCAwEAAaOB\\r\\n6zCB6DALBgNVHQ8EBAMCAYYwEgYDVR0TAQH/BAgwBgEB/wIBADAdBgNVHQ4EFgQU\\r\\n/stBFOldp9kyDeSyCFzxXOy2srUwHwYDVR0jBBgwFoAUzWJx5GG9/j3sskBg04F1\\r\\n3Tqsa8YwPAYDVR0fBDUwMzAxoC+gLYYraHR0cDovL3B1YmxpYy5yb290Y2EuZ292\\r\\nLnZuL2NybC9taWNucmNhLmNybDBHBggrBgEFBQcBAQQ7MDkwNwYIKwYBBQUHMAKG\\r\\nK2h0dHA6Ly9wdWJsaWMucm9vdGNhLmdvdi52bi9jcnQvbWljbnJjYS5jcnQwDQYJ\\r\\nKoZIhvcNAQEFBQADggEBAKB73l0nNuPDHRmbPkRpIQHqjRf/eCH5TZJekYjL4nX6\\r\\nO7uIyuuOCwmQX1wLFveyrKGvepkbL7xE/2KkumFn6PFOFD3IKEVkJiaxNi0t/q5C\\r\\nCisznHFlhBWnOq8vv+ae4u5LuxQEw9KvSGbAQyDDO7JOGWRKkdOZeQAr/jK6Gr67\\r\\neslFwLoDcV2sCWIEwRfYIL6ywLoGLGtTo1Hr7WWI/2Lja3jdi2jhuLI51M1m68TQ\\r\\njA1uj08eymqPpY8qzP15VLz1QiNuGC8szubdpl+VwgpmJnRkXefvwWO4yLEJ+cgO\\r\\n6FwjcmNWeABpIpOAHcuqwAu1wBtolNIRJyi7qpHLER0=\",\n                \"MIID1zCCAr+gAwIBAgIQG+Rzih8+wI9Hn6bPNcWYIjANBgkqhkiG9w0BAQUFADB+\\r\\nMQswCQYDVQQGEwJWTjEzMDEGA1UEChMqTWluaXN0cnkgb2YgSW5mb3JtYXRpb24g\\r\\nYW5kIENvbW11bmljYXRpb25zMRswGQYDVQQLExJOYXRpb25hbCBDQSBDZW50ZXIx\\r\\nHTAbBgNVBAMTFE1JQyBOYXRpb25hbCBSb290IENBMB4XDTA4MDUxNjAxMTI0OVoX\\r\\nDTQwMDUxNjAxMjAzMlowfjELMAkGA1UEBhMCVk4xMzAxBgNVBAoTKk1pbmlzdHJ5\\r\\nIG9mIEluZm9ybWF0aW9uIGFuZCBDb21tdW5pY2F0aW9uczEbMBkGA1UECxMSTmF0\\r\\naW9uYWwgQ0EgQ2VudGVyMR0wGwYDVQQDExRNSUMgTmF0aW9uYWwgUm9vdCBDQTCC\\r\\nASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKE/WVEO/jD/YduWeBSL20M8\\r\\nNr5hr9y1P2Ae0w0BQa34yYpCjsjtMoZHxf619+rWRDcQEsNICFFQuuVX6c41yY4c\\r\\ncwmFM0zhuzisjq23EwQuZoFXLcz7Gv0unIv9CUDwYBebcUVtfePbKtK7mt3rzF7k\\r\\nAN/VbDCFm71Xfy3UJNOA++AoUb6w1mEHzOWgR+eRbS+HWOi0rcGxRrPcWh04Cdn7\\r\\ntSeYnl788fRI/+ihO/9QM9kmq7KZYp3Me8hSTZ5cQotvdH78lBPeCtLwtWr4lkxQ\\r\\nnOYhjsHllwFOzZ+wQBl8G1lvXDgZmjfa0YE5FjLvga2wIWsRl8LBCL1vI1wED9MC\\r\\nAwEAAaNRME8wCwYDVR0PBAQDAgGGMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYE\\r\\nFM1iceRhvf497LJAYNOBdd06rGvGMBAGCSsGAQQBgjcVAQQDAgEAMA0GCSqGSIb3\\r\\nDQEBBQUAA4IBAQBMnc1+IyCAHCjP8PHJ3xHKsmlTo/JfDLNlnC9U4RxQKuBVF8QX\\r\\nvqiTUUaqhu0kZC9PE46wtBScfEO+LU5jUmzb1nAXWUdbolqzx5Z6tg31LQ3ZZDqv\\r\\n0FQ60RNotvo4DgXr4Pww90ybX+LuZ3v4Yup0r3JUTNT6Xovs67gngSyYjvfKoFGW\\r\\nc8YXifn0U5c/V8PbVShJc09KNypnhMUTvsbJ7glHYr+osup85V8k2zu4dDWw4YWP\\r\\nipdIjud4Z4nL5aQC7FtXobnHlrfB6eVdjpmmpyWaHbDO1jtrM/K+SeEt1oeBuXau\\r\\np/zNs8Z2Mq9NUFJsLQ2yvddQ5dN1Y59dzQqZ\"\n            ],\n            \"issuerDN\": \"CN=Viettel-CA,O=Viettel Group,L=Hà Nội,C=VN\",\n            \"serialNumber\": \"111681113028408966821000000000001783085\",\n            \"subjectDN\": \"UID=CMND:0123456789,CN=KH TEST,L=BẮC KẠN,C=VN\",\n            \"validFrom\": \"20221017043150+0000\",\n            \"validTo\": \"20230117043150+0000\"\n        },\n        \"authMode\": \"implicit\",\n        \"multisign\": \"2147483647\",\n        \"lang\": null,\n        \"credential_id\": \"0123456789_2482540_20221017114147\",\n        \"otp\": {\n            \"presence\": null,\n            \"type\": null,\n            \"format\": null,\n            \"label\": null,\n            \"description\": null\n        },\n        \"scal\": \"2\",\n        \"pin\": {\n            \"presence\": null,\n            \"format\": null,\n            \"label\": null,\n            \"description\": null\n        }\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "3.1. Ký đồng bộ",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"client_id\": \"{{client_id}}\",\r\n    \"client_secret\": \"{{client_secret}}\",\r\n    \"credentialID\": \"{{credential_id}}\",\r\n    \"numSignatures\": 2,\r\n    \"documents\": [\r\n        {\r\n            \"document_id\": 123,\r\n            \"document_name\": \"VGVzdCBreSB0cmVuIEFwcCBNeXNpZ24ucGRm\"\r\n        },\r\n        {\r\n            \"document_id\": 345,\r\n            \"document_name\": \"VGVzdCBreSB0cmVuIEFwcCBNeXNpZ24ucGRm\"\r\n        }\r\n    ],\r\n    \"hash\": [\r\n        \"3dad8d6cd86b405dcb06fe6e546c8792ce23dcf67b9772e11c14292d32925c7b\",\r\n        \"3dad8d6cd86b405dcb06fe6e546c8792ce23dcf67b9772e11c14292d32925c7b\"\r\n    ],\r\n    \"hashAlgo\": \"2.16.840.1.101.3.4.2.1\",\r\n    \"signAlgo\": \"1.2.840.113549.1.1.1\",\r\n    \"async\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/vtss/service/signHash",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"vtss",
+								"service",
+								"signHash"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"client_id\": \"02\",\r\n    \"client_secret\": \"client_secret\",\r\n    \"credentialID\": \"4dc6eadd-6147-4055-9a1c-c1e14c40ba8b\",\r\n    \"numSignatures\": 2,\r\n    \"documents\": [\r\n        {\r\n            \"document_id\": 123,\r\n            \"document_name\": \"Document Name 123\"\r\n        },\r\n        {\r\n            \"document_id\": 456,\r\n            \"document_name\": \"Document Name 456\"\r\n        }\r\n    ],\r\n    \"hash\": [\r\n        \"sTOgwOm+474gFj0q0x1iSNspKqbcse4IeiqlDg/HWuI=\",\r\n        \"c1RPZ3dPbSs0NzRnRmowcTB4MWlTTnNwS3FiY3NlNEllaXFsRGcvSFd1ST0=\"\r\n    ],\r\n    \"hashAlgo\": \"2.16.840.1.101.3.4.2.1\",\r\n    \"signAlgo\": \"1.2.840.113549.1.1.1\",\r\n    \"async\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9005/wrapper/api/v1/integrated/signHash",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"wrapper",
+										"api",
+										"v1",
+										"integrated",
+										"signHash"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 06 Sep 2022 09:55:57 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"signatures\": [\n        \"v1c1a5u0mrjyneXd7OQGYCq6/FCrASyrxR297sHVhBer1nUGxyEKIgfO8OhcqsvI\\r\\nF/VeuKUd+Vdjc8cVcGSkeincd0Y8BJJzRPJ8+9ldzxamebXYHKjIMcHuclPlRQJb\\r\\nSTLjeb+DWWs6gB2XB3W+azRqV3AwHJW3+eec8gTPFnkKXEvs6DqDx/yrScvQjU0G\\r\\nYZITiwSO2NoTI3RI5FXoL3+4XP4c6/WXjtQRADSAfvVe4J6G41aZqR/OiADJeook\\r\\nloDOgNXBaX4jS5mICbfh/2P6ybWvi0sH9mg12knen9eYTC6JfyMJY9IaSvitvtv7\\r\\nfiusUXg7Vt+7Gnk0lYADcw==\",\n        \"v1c1a5u0mrjyneXd7OQGYCq6/FCrASyrxR297sHVhBer1nUGxyEKIgfO8OhcqsvI\\r\\nF/VeuKUd+Vdjc8cVcGSkeincd0Y8BJJzRPJ8+9ldzxamebXYHKjIMcHuclPlRQJb\\r\\nSTLjeb+DWWs6gB2XB3W+azRqV3AwHJW3+eec8gTPFnkKXEvs6DqDx/yrScvQjU0G\\r\\nYZITiwSO2NoTI3RI5FXoL3+4XP4c6/WXjtQRADSAfvVe4J6G41aZqR/OiADJeook\\r\\nloDOgNXBaX4jS5mICbfh/2P6ybWvi0sH9mg12knen9eYTC6JfyMJY9IaSvitvtv7\\r\\nfiusUXg7Vt+7Gnk0lYADcw==\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "3.2.1. Ký bất đồng bộ",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"client_id\": \"{{client_id}}\",\r\n    \"client_secret\": \"{{client_secret}}\",\r\n    \"credentialID\": \"{{credential_id}}\",\r\n    \"numSignatures\": 2,\r\n    \"documents\": [\r\n        {\r\n            \"document_id\": 123,\r\n            \"document_name\": \"VGVzdCBreSB0cmVuIEFwcCBNeXNpZ24ucGRm\"\r\n        },\r\n        {\r\n            \"document_id\": 345,\r\n            \"document_name\": \"VGVzdCBreSB0cmVuIEFwcCBNeXNpZ24ucGRm\"\r\n        }\r\n    ],\r\n    \"hash\": [\r\n        \"3dad8d6cd86b405dcb06fe6e546c8792ce23dcf67b9772e11c14292d32925c7b\",\r\n        \"3dad8d6cd86b405dcb06fe6e546c8792ce23dcf67b9772e11c14292d32925c7b\"\r\n    ],\r\n    \"hashAlgo\": \"2.16.840.1.101.3.4.2.1\",\r\n    \"signAlgo\": \"1.2.840.113549.1.1.1\",\r\n    \"async\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/vtss/service/signHash",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"vtss",
+								"service",
+								"signHash"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"client_id\": \"02\",\r\n    \"client_secret\": \"client_secret\",\r\n    \"credentialID\": \"4dc6eadd-6147-4055-9a1c-c1e14c40ba8b\",\r\n    \"numSignatures\": 2,\r\n    \"documents\": [\r\n        {\r\n            \"document_id\": 123,\r\n            \"document_name\": \"Document Name 123\"\r\n        },\r\n        {\r\n            \"document_id\": 456,\r\n            \"document_name\": \"Document Name 456\"\r\n        }\r\n    ],\r\n    \"hash\": [\r\n        \"sTOgwOm+474gFj0q0x1iSNspKqbcse4IeiqlDg/HWuI=\",\r\n        \"c1RPZ3dPbSs0NzRnRmowcTB4MWlTTnNwS3FiY3NlNEllaXFsRGcvSFd1ST0=\"\r\n    ],\r\n    \"hashAlgo\": \"2.16.840.1.101.3.4.2.1\",\r\n    \"signAlgo\": \"1.2.840.113549.1.1.1\",\r\n    \"async\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9005/wrapper/api/v1/integrated/signHash",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"wrapper",
+										"api",
+										"v1",
+										"integrated",
+										"signHash"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 06 Sep 2022 09:55:57 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"transactionId\": \"d54689b4-b85c-4bf0-a942-6445b08ec0df\"\n}"
+						}
+					]
+				},
+				{
+					"name": "3.2.2. Lấy kết quả yêu cầu ký bất đồng bộ",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"transactionId\":\"{{tranid}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/vtss/service/requests/status",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"vtss",
+								"service",
+								"requests",
+								"status"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"transactionId\":\"{{tranid}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/vtss/service/requests/status",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vtss",
+										"service",
+										"requests",
+										"status"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "https://remotesigning.viettel.vn"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Max-Age",
+									"value": "86400"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000 ; includeSubDomains"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 Dec 2022 01:43:20 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"signatures\": [\n        \"v1c1a5u0mrjyneXd7OQGYCq6/FCrASyrxR297sHVhBer1nUGxyEKIgfO8OhcqsvI\\r\\nF/VeuKUd+Vdjc8cVcGSkeincd0Y8BJJzRPJ8+9ldzxamebXYHKjIMcHuclPlRQJb\\r\\nSTLjeb+DWWs6gB2XB3W+azRqV3AwHJW3+eec8gTPFnkKXEvs6DqDx/yrScvQjU0G\\r\\nYZITiwSO2NoTI3RI5FXoL3+4XP4c6/WXjtQRADSAfvVe4J6G41aZqR/OiADJeook\\r\\nloDOgNXBaX4jS5mICbfh/2P6ybWvi0sH9mg12knen9eYTC6JfyMJY9IaSvitvtv7\\r\\nfiusUXg7Vt+7Gnk0lYADcw==\",\n        \"v1c1a5u0mrjyneXd7OQGYCq6/FCrASyrxR297sHVhBer1nUGxyEKIgfO8OhcqsvI\\r\\nF/VeuKUd+Vdjc8cVcGSkeincd0Y8BJJzRPJ8+9ldzxamebXYHKjIMcHuclPlRQJb\\r\\nSTLjeb+DWWs6gB2XB3W+azRqV3AwHJW3+eec8gTPFnkKXEvs6DqDx/yrScvQjU0G\\r\\nYZITiwSO2NoTI3RI5FXoL3+4XP4c6/WXjtQRADSAfvVe4J6G41aZqR/OiADJeook\\r\\nloDOgNXBaX4jS5mICbfh/2P6ybWvi0sH9mg12knen9eYTC6JfyMJY9IaSvitvtv7\\r\\nfiusUXg7Vt+7Gnk0lYADcw==\"\n    ],\n    \"status\": \"1\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://remotesigning.viettel.vn:8773"
+		},
+		{
+			"key": "client_id",
+			"value": "samples_test_client"
+		},
+		{
+			"key": "client_secret",
+			"value": "205640fd6ea8c7d80bb91c630b52d286d21ee511"
+		},
+		{
+			"key": "profile_id",
+			"value": "adss:ras:profile:001"
+		},
+		{
+			"key": "user_id",
+			"value": "CMT_0123456789"
+		},
+		{
+			"key": "credential_id",
+			"value": "0123456787-178_2434498_20220913174927"
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJEdXlucTdfdmlldHRlbDIiLCJqdGkiOiIxMCIsImlhdCI6MTY3MDgyMDMwNiwiZXhwIjoxNjcwODIzOTA2fQ.DyQocjQZV1kSW4FwRfDIXalSJyS6mJ8R5eVwrNPpSTA"
+		},
+		{
+			"key": "tranid",
+			"value": "25c446b6-7975-4db8-a765-2f5023fbdfe2"
+		}
+	]
+}

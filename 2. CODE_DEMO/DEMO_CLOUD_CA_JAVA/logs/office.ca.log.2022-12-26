@@ -1,0 +1,9 @@
+26-12-2022 10:35:53  INFO [AWT-EventQueue-0] TestForm:182 - Start Program
+26-12-2022 10:36:58  INFO [AWT-EventQueue-0] SignMobileCAAction:218 - input: {"client_id":"samples_test_client","user_id":"duynq7_viettel3","client_secret":"205640fd6ea8c7d80bb91c630b52d286d21ee511","profile_id":"adss:ras:profile:001"}
+26-12-2022 10:36:59 ERROR [AWT-EventQueue-0] SignMobileCAAction:235 - Failed : HTTP error code : 403
+26-12-2022 10:36:59 ERROR [AWT-EventQueue-0] SignMobileCAAction:259 - java.io.IOException: Server returned HTTP response code: 403 for URL: https://remotesigning.viettel.vn/adss/service/ras/v1/login
+26-12-2022 10:36:59  INFO [AWT-EventQueue-0] SignMobileCAAction:271 - Output from Server .... 
+
+26-12-2022 10:36:59  INFO [AWT-EventQueue-0] SignMobileCAAction:281 - responce: {  "error": "58003"}
+26-12-2022 10:36:59 ERROR [AWT-EventQueue-0] SignMobileCAAction:71 - ERROR: Login to Cloud CA
+26-12-2022 10:36:59  INFO [AWT-EventQueue-0] TestForm:190 - Không tìm thấy CTS
